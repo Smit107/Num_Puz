@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Num_Puzz_3X3</title>
+    <link rel="stylesheet" href="Num_Puz_Static.css">
+</head>
+<body>
+    <table>
+        <tr>
+            <td><input type="text" readonly value="1" id="b1" onclick="b1(1)"  class="i1"></td>
+            <td><input type="text" readonly value="2" id="b2" onclick="b2(2)" class="i1"></td>
+            <td><input type="text" readonly value="3" id="b3" onclick="b3(3)" class="i1"></td>
+        </tr>       
+        <tr>
+            <td><input type="text" readonly value="4" id="b4" onclick="b4(4)" class="i1"></td>
+            <td><input type="text" readonly value="5" id="b5" onclick="b5(5)" class="i1"></td>
+            <td><input type="text" readonly value="6" id="b6" onclick="b6(6)" class="i1"></td>
+        </tr>
+        <tr>
+            <td><input type="text" readonly value="7" id="b7" onclick="b7(7)" class="i1"></td>
+            <td><input type="text" readonly value="" id="b8" onclick="b8(8)" class="i1"></td>
+            <td><input type="text" readonly value="8" id="b9" onclick="b9(9)" class="i1"></td>
+        </tr>
+        <tr>
+            <td colspan="3"><div id="winner"></div></td>
+        </tr>
+        <tr>
+            <td colspan="3" id="reset_back"><button id="reset" onclick="reset()">Reset All</button></td>
+        </tr>
+    </table>
+
+    
+    <script src="Num_Puz_Static.js"></script>
+
+</body>
+</html>

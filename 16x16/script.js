@@ -39,7 +39,7 @@ function drawPuzzle() {
 }
 
 function moveTile(row, col) {
-    if (Math.abs(row - emptyRow) + Math.abs(col - emptyCol) !== 1) {
+        if (Math.abs(row - emptyRow) + Math.abs(col - emptyCol) !== 1) {
         return;
     }
 
@@ -50,9 +50,13 @@ function moveTile(row, col) {
 
     drawPuzzle();
 
-    if (checkWin()) {
-        alert("Congratulations! You solved the puzzle!");
-    }
+    setTimeout(() => {
+        if (checkWin()) {
+            alert("Congratulations! You solved the puzzle!");
+        }    
+    },1); 
+
+    
 }
 
 function checkWin() {
@@ -71,3 +75,6 @@ window.onload = () => {
     createPuzzle();
     drawPuzzle();
 };
+
+
+
