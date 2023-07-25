@@ -1,7 +1,33 @@
-var arr = ['','','','','','','','','']; 
-var a;
-window.onload = reset()
+var arr
+window.onload=function(){
+    demo();
+}
+
+function demo(){
+    arr=[];
+    for (var i = 0; i < 9; ) {
+        var p=Math.floor(Math.random()*9+1)
+        if(!arr.includes(p)){
+            arr.push(p)   
+            i++
+        }   
+    }
+
+    for( var i=0;i<9;i++){
+        if(arr[i] == 9){
+            arr[i]="";
+        }
+    }
+
+    for( var i=0;i<9;i++){
+        document.getElementById('b'+(i+1)).value = arr[i];
+    }
+}
+
 function b1(k) {
+    var b1 = document.getElementById("b1").value
+    var b4 = document.getElementById("b4").value
+    var b2 = document.getElementById("b2").value
 
     if( document.getElementById("b4").value == "" ){
         document.getElementById("b4").value = document.getElementById('b'+k).value;
@@ -16,6 +42,9 @@ function b1(k) {
 }
 
 function b2(k) {
+    var b5 = document.getElementById("b5").value
+    var b3 = document.getElementById("b3").value
+    var b2 = document.getElementById("b2").value
 
     if( document.getElementById("b1").value == "" ){
         document.getElementById("b1").value = document.getElementById('b'+k).value;
@@ -35,6 +64,9 @@ function b2(k) {
 }
 
 function b3(k) {
+    var b3 = document.getElementById("b3").value
+    var b2 = document.getElementById("b2").value
+    var b6 = document.getElementById("b6").value
 
     if( document.getElementById("b2").value == "" ){
         document.getElementById("b2").value = document.getElementById('b'+k).value;
@@ -49,6 +81,10 @@ function b3(k) {
 }
 
 function b4(k) {
+    var b4 = document.getElementById("b4").value
+    var b1 = document.getElementById("b1").value
+    var b5 = document.getElementById("b5").value
+    var b7 = document.getElementById("b7").value
 
     if( document.getElementById("b1").value == "" ){
         document.getElementById("b1").value = document.getElementById('b'+k).value;
@@ -68,6 +104,11 @@ function b4(k) {
 }
 
 function b5(k) {
+    var b2 = document.getElementById("b5").value
+    var b1 = document.getElementById("b2").value
+    var b4 = document.getElementById("b4").value
+    var b6 = document.getElementById("b6").value
+    var b8 = document.getElementById("b8").value
 
     if( document.getElementById("b2").value == "" ){
         document.getElementById("b2").value = document.getElementById('b'+k).value;
@@ -92,6 +133,10 @@ function b5(k) {
 }
 
 function b6(k) {
+    var b6 = document.getElementById("b6").value
+    var b3 = document.getElementById("b3").value
+    var b5 = document.getElementById("b5").value
+    var b9 = document.getElementById("b9").value
 
     if( document.getElementById("b3").value == "" ){
         document.getElementById("b3").value = document.getElementById('b'+k).value;
@@ -111,6 +156,9 @@ function b6(k) {
 }
 
 function b7(k) {
+    var b7 = document.getElementById("b7").value
+    var b8 = document.getElementById("b8").value
+    var b4 = document.getElementById("b4").value
 
     if( document.getElementById("b8").value == "" ){
         document.getElementById("b8").value = document.getElementById('b'+k).value;
@@ -125,6 +173,10 @@ function b7(k) {
 }
 
 function b8(k) {
+    var b8 = document.getElementById("b8").value
+    var b7 = document.getElementById("b7").value
+    var b5 = document.getElementById("b5").value
+    var b9 = document.getElementById("b9").value
 
     if( document.getElementById("b7").value == "" ){
         document.getElementById("b7").value = document.getElementById('b'+k).value;
@@ -144,6 +196,10 @@ function b8(k) {
 }
 
 function b9(k) {
+    
+    var b9 = document.getElementById("b9").value
+    var b6 = document.getElementById("b6").value
+    var b8 = document.getElementById("b8").value
 
     if( document.getElementById("b6").value == "" ){
         document.getElementById("b6").value = document.getElementById('b'+k).value;
@@ -171,38 +227,30 @@ function winner() {
         document.getElementById("winner").innerHTML = 'Congretulation'+'<br>'+'You Are Win';
         var x =document.getElementById("winner");
         x.style.color='blue';
-        ds();       
+        ds();
     }
 }
 
+var x=document.getElementsByClassName('i1'); 
 
-function reset() {  
-    for (var p = 1;p<= 9 ;p++){
-        document.getElementById('b'+p).value = "";
-        arr[p] = "";
+function reset() {
+    for (var i = 0;i<9 ;i++){
+        arr[i] = "";
+        document.getElementById('b'+(i+1)).value = "";
+
     } 
-
+    demo()
+    for (let i = 0; i < x.length; i++) {
+        x[i].disabled=false;
+    }
     document.getElementById("winner").innerHTML = "";
-
-    for(var j=1;j<=9;j++){
-        while (true){
-             a=Math.ceil(Math.random()*9)
-            if(arr[a] == '')
-            {   
-                document.getElementById('b'+a).value = j;
-                arr[a]=j;
-                if(j == 9){
-                    document.getElementById('b'+a).value = '';
-                    arr[a]='';
-                }
-                break;
-            } 
-        }
-    }       
+   
+    
 }
 
+
 function ds(){
-    var x=document.getElementsByClassName('i1'); 
+    
     for (let i = 0; i < x.length; i++) {
         x[i].disabled=true;
     }
